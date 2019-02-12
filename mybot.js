@@ -4,7 +4,12 @@ const config = require("./config.json");
 
 //send message to log when online
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+	console.log(`Logged in as ${client.user.tag}!`);
+	client.guilds.forEach((guild) => {
+		guild.channels.forEach((channel) => {
+			channel.fetchMessages({ limit: 50 })
+		})
+	})
 });
 
 /* Message code
@@ -30,7 +35,7 @@ client.on("message", message => {
 client.on("messageReactionAdd", (reaction, user) => {
 	if (reaction.emoji.identifier===config.quote){
 		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n ```' + reaction.message.cleanContent + '```');
-}
+	}
 });
 
 client.login(process.env.BOT_TOKEN);
