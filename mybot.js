@@ -7,8 +7,10 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.guilds.forEach((guild) => {
 		guild.channels.forEach((channel) => {
-			channel.fetchMessages({ limit: 50 })
-		})
+      if (channel.type==="text") {channel.fetchMessages()
+        .then(messages => console.log(`Received ${messages.size} messages in ${channel.name} of server ${guild.name}`))
+        .catch(console.error);
+    }})
 	})
 });
 
