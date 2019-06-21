@@ -14,7 +14,7 @@ client.on('ready', () => {
 	})
 });
 
- Message code
+ //Message code
 client.on("message", message => {
 	if (message.author.bot) return;
   // This is where we'll put our code.
