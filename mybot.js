@@ -69,8 +69,8 @@ function roll(min, max, dice){
     var i;
     for (i = 0; i < dice; i++) { 
       result[i]=Math.floor(Math.random() * (max+1 - min)) + min;
-      return ('He tirado '+dice+' dados y ha salido: '+result.toString())
     }
+    return ('He tirado '+dice+' dados y ha salido: '+result.toString())
   }
 }
 
