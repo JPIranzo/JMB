@@ -25,7 +25,7 @@ client.on("message", message => {
 
   switch (command) {
   	case "help" :
-  	message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con <:speech_balloon:0b6fc9f58ca3827977d546a6ee0ca3e7> \n -Mostrar esta ayuda con el comando help.');
+  	message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Mostrar esta ayuda con el comando help.');
   	break;
     case "roll" :
     
