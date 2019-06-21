@@ -60,7 +60,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 //Rolling dice
 function roll(min, max, dice){
   var result;
-  if (dice=1){
+  if (dice===1){
     result=Math.floor(Math.random() * (max+1 - min)) + min;
     return ('He tirado un dado y ha salido '+result);
   }
