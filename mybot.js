@@ -34,10 +34,13 @@ client.on("message", message => {
           break;
         case 1:
           message.channel.send(roll(1,args[0],1));
+          break;
         case 2:
           message.channel.send(roll(1,args[0],args[1]));
+          break;
         case 3:
           message.channel.send(roll(args[2],args[0],args[1]));
+          break;
         default:
           message.channel.send('Numero de argumentos inválido.');
     }
