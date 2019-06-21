@@ -38,7 +38,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 	if (reaction.emoji.identifier===config.quote){
     var month;
     month=reaction.message.createdAt.getMonth()+1;
-		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+reaction.message.createdAt.getHours()+':'+reaction.message.createdAt.getMinutes()+'```');
+		reaction.message.channel.send(user.toString() + '``` ha citado el mensaje de ```' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+reaction.message.createdAt.getHours()+':'+reaction.message.createdAt.getMinutes()+'```');
 	}
 });
 
