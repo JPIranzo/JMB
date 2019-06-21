@@ -14,25 +14,25 @@ client.on('ready', () => {
 	})
 });
 
-/* Message code
+ Message code
 client.on("message", message => {
 	if (message.author.bot) return;
   // This is where we'll put our code.
   if (message.content.indexOf(config.prefix) !== 0) return;
 
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(config.prefix.length).trim().split(" ");
   const command = args.shift().toLowerCase();
 
   switch (command) {
-  	case "ping" :
-  	message.channel.send('Pong!');
+  	case "help" :
+  	message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con <:speech_balloon:0b6fc9f58ca3827977d546a6ee0ca3e7> \n -Mostrar esta ayuda con el comando help.');
   	break;
-  	case "blah" :
-  	message.channel.send('Meh.');
-  	break;
+    case "roll" :
+    
+    break;
   }
 });
-*/
+
 //Reaction code
 client.on("messageReactionAdd", (reaction, user) => {
 	if (reaction.emoji.identifier===config.quote){
