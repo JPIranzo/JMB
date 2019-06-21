@@ -36,7 +36,7 @@ client.on("message", message => {
 //Reaction code
 client.on("messageReactionAdd", (reaction, user) => {
 	if (reaction.emoji.identifier===config.quote){
-		reaction.message.channel.send('```'+user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n ```' + reaction.message.cleanContent + '```\n Con fecha:'+reaction.message.createdAt+'```');
+		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay+'-'+reaction.message.createdAt.getMonth+1+'-'+reaction.message.createdAt.getFullYear+' a las '+reaction.message.createdAt.getHours+':'+reaction.message.createdAt.getMinutes+'```');
 	}
 });
 
