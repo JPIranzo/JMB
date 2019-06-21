@@ -34,6 +34,7 @@ client.on("message", message => {
           break;
         case 1:
           message.channel.send(roll(1,args[0],1));
+          message.channel.send(args.toString());
           break;
         case 2:
           message.channel.send(roll(1,args[0],args[1]));
