@@ -25,10 +25,22 @@ client.on("message", message => {
 
   switch (command) {
   	case "help" :
-  	message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Mostrar esta ayuda con el comando help.');
-  	break;
+  	 message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Mostrar esta ayuda con el comando help.');
+  	 break;
     case "roll" :
-    
+      switch (args.length) {
+        case 0:
+          message.channel.send(roll(1,6,1));
+          break;
+        case 1:
+          message.channel.send(roll(1,args[0],1));
+        case 2:
+          message.channel.send(roll(1,args[0],args[1]));
+        case 3:
+          message.channel.send(roll(args[2],args[0],args[1]));
+        default:
+          message.channel.send('Numero de argumentos inválido.');
+    }
     break;
   }
 });
@@ -41,5 +53,22 @@ client.on("messageReactionAdd", (reaction, user) => {
 		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+reaction.message.createdAt.getHours()+':'+reaction.message.createdAt.getMinutes()+'```');
 	}
 });
+
+//Rolling dice
+function roll(min, max, dice){
+  var result;
+  if (dice=1){
+    result=Math.floor(Math.random() * (max+1 - min)) + min;
+    return ('He tirado un dado y ha salido '+result);
+  }
+  else
+  {
+    var i;
+    for (i = 0; i < dice; i++) { 
+      result[i]=Math.floor(Math.random() * (max+1 - min)) + min;
+      return ('He tirado '+dice+' dados y ha salido: '+result.toString())
+    }
+  }
+}
 
 client.login(process.env.BOT_TOKEN);
