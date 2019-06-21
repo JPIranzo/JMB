@@ -62,7 +62,7 @@ function roll(min, max, dice){
   var result;
   if (dice===1){
     result=Math.floor(Math.random() * (max+1 - min)) + min;
-    return ('He tirado un dado y ha salido '+result);
+    return ('He tirado un dado de '+max+' caras y ha salido '+result);
   }
   else
   {
