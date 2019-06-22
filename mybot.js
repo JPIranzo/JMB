@@ -33,13 +33,13 @@ client.on("message", message => {
           message.channel.send(roll(1,6,1));
           break;
         case 1:
-          message.channel.send(roll(1,args[0],1));
+          message.channel.send(roll(1,parseInt(args[0],10),1));
           break;
         case 2:
-          message.channel.send(roll(1,args[0],args[1]));
+          message.channel.send(roll(1,parseInt(args[0],10),parseInt(args[1],10)));
           break;
         case 3:
-          message.channel.send(roll(args[2],args[0],args[1]));
+          message.channel.send(roll(parseInt(args[2],10),parseInt(args[0],10),parseInt(args[1],10)));
           break;
         default:
           message.channel.send('Numero de argumentos inválido.');
@@ -52,8 +52,10 @@ client.on("message", message => {
 client.on("messageReactionAdd", (reaction, user) => {
 	if (reaction.emoji.identifier===config.quote){
     var month;
+    var hour
     month=reaction.message.createdAt.getMonth()+1;
-		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+reaction.message.createdAt.getHours()+':'+reaction.message.createdAt.getMinutes()+'```');
+    hour=reaction.message.createdAt.getHours()+2;
+		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+hour+':'+reaction.message.createdAt.getMinutes()+'```');
 	}
 });
 
