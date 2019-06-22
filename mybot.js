@@ -76,7 +76,7 @@ function roll(min, max, dice){
   var result=[];
   if (dice===1){
     result[0]=Math.floor(Math.random() * (max+1 - min)) + min;
-    return ('He tirado un dado de '+max-min+' caras numeradas a partir de '+min+' y ha salido '+result[0]);
+    return ('He tirado un dado de '+max+' caras y ha salido '+result[0]);
   }
   else
   {
@@ -84,7 +84,7 @@ function roll(min, max, dice){
     for (i = 0; i < dice; i++) { 
       result.push(Math.floor(Math.random() * (max+1 - min)) + min);
     }
-    return ('He tirado '+dice+' dados de '+max-min+' caras numeradas a partir de '+min+' y ha salido: '+result.toString());
+    return ('He tirado '+dice+' dados de '+max+' caras y ha salido: '+result.toString());
   }
 }
 
