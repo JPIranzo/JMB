@@ -24,7 +24,7 @@ client.on("message", message => {
   var command = args.shift().toLowerCase();
 
   switch (command) {
-  	case "help" :
+  	case "help":
     switch (args.length){
       case 0:
       message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Tirar un dado con el comando roll \n -Mostrar ayuda detallada escribiendo JMB! help comando');
