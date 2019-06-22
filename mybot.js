@@ -66,16 +66,16 @@ client.on("messageReactionAdd", (reaction, user) => {
 
 //Rolling dice
 function roll(min, max, dice){
-  var result;
+  var result=[];
   if (dice===1){
-    result=Math.floor(Math.random() * (max+1 - min)) + min;
-    return ('He tirado un dado de '+max+' caras y ha salido '+result);
+    result[0]=Math.floor(Math.random() * (max+1 - min)) + min;
+    return ('He tirado un dado de '+max+' caras y ha salido '+result[0]);
   }
   else
   {
     var i;
     for (i = 0; i < dice; i++) { 
-      result[i]=Math.floor(Math.random() * (max+1 - min)) + min;
+      result.push(Math.floor(Math.random() * (max+1 - min)) + min);
     }
     return ('He tirado '+dice+' dados de '+max+' caras y ha salido: '+result.toString());
   }
