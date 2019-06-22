@@ -25,7 +25,12 @@ client.on("message", message => {
 
   switch (command) {
   	case "help" :
-  	 message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Mostrar esta ayuda con el comando help.');
+    switch (args.length){
+      case 0:
+      message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Tirar un dado con el comando roll \n -Mostrar ayuda detallada escribiendo JMB! help comando');
+      break;
+
+    }
   	 break;
     case "roll" :
       switch (args.length) {
@@ -55,7 +60,7 @@ client.on("messageReactionAdd", (reaction, user) => {
     var hour
     month=reaction.message.createdAt.getMonth()+1;
     hour=reaction.message.createdAt.getHours()+2;
-		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDay()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+hour+':'+reaction.message.createdAt.getMinutes()+'```');
+		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDate()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+hour+':'+reaction.message.createdAt.getMinutes()+'```');
 	}
 });
 
