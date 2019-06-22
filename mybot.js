@@ -33,8 +33,10 @@ client.on("message", message => {
       switch (args[0]){
         case "help":
         message.channel.send('Muestra la ayuda del bot.');
+        break;
         case "roll":
         message.channel.send('Tiro un dado configurable: __JMB! roll X Y Z__ significa lanzar un dado con valores entre X y Z, Y veces. Todos los parámetros son opcionales, por defecto lanzaré un dado de 6 caras tradicional.');
+        break;
         default:
         message.channel.send('No sé qué comando es ese.');
       }
