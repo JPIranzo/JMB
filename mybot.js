@@ -60,7 +60,7 @@ client.on("messageReactionAdd", (reaction, user) => {
     var hour
     month=reaction.message.createdAt.getMonth()+1;
     hour=reaction.message.createdAt.getHours()+2;
-		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDate()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+hour+':'+reaction.message.createdAt.getMinutes()+'```');
+		reaction.message.channel.send(user.toString() + ' ha citado el mensaje de ' + reaction.message.author.toString() + ' :\n' + reaction.message.cleanContent + '```\n Enviado el '+reaction.message.createdAt.getDate()+'-'+month+'-'+reaction.message.createdAt.getFullYear()+' a las '+hour+' horas y '+reaction.message.createdAt.getMinutes()+' minutos.```');
 	}
 });
 
@@ -77,7 +77,7 @@ function roll(min, max, dice){
     for (i = 0; i < dice; i++) { 
       result[i]=Math.floor(Math.random() * (max+1 - min)) + min;
     }
-    return ('He tirado '+dice+' dados y ha salido: '+result.toString())
+    return ('He tirado '+dice+' dados de '+max+' caras y ha salido: '+result.toString());
   }
 }
 
