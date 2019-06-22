@@ -77,17 +77,18 @@ client.on("messageReactionAdd", (reaction, user) => {
 //Rolling dice
 function roll(min, max, dice){
   var result=[];
+  var caras=max-min+1;
   if (dice===1){
-    result[0]=Math.floor(Math.random() * (max+1 - min)) + min;
-    return ('He tirado un dado de '+max-min+' caras numeradas a partir de '+min+' y ha salido '+result.toString());
+    result[0]=Math.floor(Math.random() * (caras)) + min;
+    return ('He tirado un dado de '+caras+' caras numeradas a partir de '+min+' y ha salido '+result.toString());
   }
   else
   {
     var i;
     for (i = 0; i < dice; i++) { 
-      result[i]=Math.floor(Math.random() * (max+1 - min)) + min;
+      result[i]=Math.floor(Math.random() * (caras)) + min;
     }
-    return ('He tirado '+dice+' dados de '+max-min+' caras numeradas a partir de '+min+' y ha salido: '+result.toString());
+    return ('He tirado '+dice+' dados de '+caras+' caras numeradas a partir de '+min+' y ha salido: '+result.toString());
   }
 }
 
