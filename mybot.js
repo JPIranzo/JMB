@@ -30,13 +30,14 @@ client.on("message", message => {
       message.channel.send('Por el momento puedo realizar las siguientes funciones: \n -Citar un mensaje al que se reaccione con :speech_balloon: \n -Tirar un dado con el comando roll \n -Mostrar ayuda detallada escribiendo JMB! help comando');
       break;
       default:
-      switch (args[0])
+      switch (args[0]){
         case "help":
         message.channel.send('Muestra la ayuda del bot.');
         case "roll":
         message.channel.send('Tiro un dado configurable: __JMB! roll X Y Z__ significa lanzar un dado con valores entre X y Z, Y veces. Todos los parámetros son opcionales, por defecto lanzaré un dado de 6 caras tradicional.');
         default:
         message.channel.send('No sé qué comando es ese.');
+      }
     }
   	 break;
     case "roll" :
@@ -76,7 +77,7 @@ function roll(min, max, dice){
   var result;
   if (dice===1){
     result=Math.floor(Math.random() * (max+1 - min)) + min;
-    return ('He tirado un dado de '+max+' caras y ha salido '+result);
+    return ('He tirado un dado de '+max-min+' caras numeradas a partir de '+min+' y ha salido '+result);
   }
   else
   {
@@ -84,7 +85,7 @@ function roll(min, max, dice){
     for (i = 0; i < dice; i++) { 
       result[i]=Math.floor(Math.random() * (max+1 - min)) + min;
     }
-    return ('He tirado '+dice+' dados de '+max+' caras y ha salido: '+result.toString());
+    return ('He tirado '+dice+' dados de '+max-min+' caras numeradas a partir de '+min+' y ha salido: '+result.toString());
   }
 }
 
